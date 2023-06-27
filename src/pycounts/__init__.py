@@ -6,3 +6,4 @@ __version__ = version("pycounts")
 # populate package namespace
 from pycounts.pycounts import count_words
 from pycounts.plotting import plot_words
+from pycounts.datasets import get_flatland
