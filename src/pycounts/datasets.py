@@ -1,4 +1,5 @@
-from importlib import resources
+import pycounts.data
+from importlib_resources import files, as_file
 
 
 def get_flatland():
@@ -13,6 +14,9 @@ def get_flatland():
     ----------
     .. [1] E. A. Abbott, "Flatland", Seeley & Co., 1884.
     """
-    with resources.path("pycounts.data", "flatland.txt") as f:
+
+    fixtures = files(pycounts.data).joinpath('flatland.txt')
+    with as_file(fixtures) as f:
         data_file_path = f
+
     return data_file_path
