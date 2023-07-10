@@ -21,7 +21,6 @@ def load_text(input_file):
     Examples
     --------
     >>> load_text("test.txt")
-
     """
     with open(input_file, 'r') as file:
         text = file.read()
