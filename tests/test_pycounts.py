@@ -1,4 +1,4 @@
-from pycounts.pycounts import count_words, load_text, clean_text
+from pycounts.pycounts import count_words
 from pycounts.plotting import plot_words
 from pycounts.datasets import get_flatland
 from collections import Counter
