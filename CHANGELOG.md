@@ -2,15 +2,15 @@
 
 <!--next-version-placeholder-->
 
-### Feature
+## Feature
 
 - Added new datasets modules to load example data
 
-### Fix
+## Fix
 
 - Check type of argument passed to `plotting.plot_words()`
 
-### Tests
+## Tests
 
 - Added new tests to all package modules in test_pycounts.py
 
