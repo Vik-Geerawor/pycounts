@@ -1,5 +1,6 @@
 import pycounts.data
 from importlib_resources import files, as_file
+import warnings
 
 
 def get_flatland():
@@ -14,7 +15,8 @@ def get_flatland():
     ----------
     .. [1] E. A. Abbott, "Flatland", Seeley & Co., 1884.
     """
-
+    warnings.warn("This function will be deprecated in v1.0.0", FutureWarning)
+    
     fixtures = files(pycounts.data).joinpath('flatland.txt')
     with as_file(fixtures) as f:
         data_file_path = f
