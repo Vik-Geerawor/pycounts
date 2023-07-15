@@ -1,0 +1,48 @@
+# Name of the workflow
+name: ci-cid
+
+
+# event to trigger this workflow
+# on push or PR on any branch
+on: [push, pull_request]
+
+# list of jobs
+jobs:
+    # job 1
+    ci:
+        # runs on - platform
+        runs-on: ubuntu-latest
+
+        # steps
+        steps:
+            # step 1: set up python
+            -   name: Set up python 3.11
+                uses: actions/setup-python@v2
+                with:
+                    python-version: 3.11
+            
+            # step 2: check-out repo
+            -   name: Check-out repository
+                uses: actions/checkout@v2
+
+            # step 3: insall poetry
+            -   name: Install poetry
+                uses: snok/install-poetry@v1
+            
+            # step 4: install package
+            -   name: Install package
+                run: poetry install
+
+            # step 4: execute tests
+            -   name: Execute tests with pytest
+                run: poetry run pytest tests/ --cov=pycounts --cov-report=xml
+
+            # step 5: track code coverage using codecov
+            -   name: Track code coverage using Codecov
+                uses: codecov/codecov-action@v2
+                with:
+                    files: ./coverage.xml       # coverage report
+
+            # step 6: build docs
+            -   name: Build documentation
+                run: poetry run make html --directory docs/
