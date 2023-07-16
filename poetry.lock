@@ -708,16 +708,14 @@ files = [
 
 [[package]]
 name = "dotty-dict"
-version = "1.3.0"
+version = "1.3.1"
 description = "Dictionary wrapper for quick access to deeply nested keys."
 optional = false
-python-versions = "*"
+python-versions = ">=3.5,<4.0"
 files = [
-    {file = "dotty_dict-1.3.0.tar.gz", hash = "sha256:eb0035a3629ecd84397a68f1f42f1e94abd1c34577a19cd3eacad331ee7cbaf0"},
+    {file = "dotty_dict-1.3.1-py3-none-any.whl", hash = "sha256:5022d234d9922f13aa711b4950372a06a6d64cb6d6db9ba43d0ba133ebfce31f"},
+    {file = "dotty_dict-1.3.1.tar.gz", hash = "sha256:4b016e03b8ae265539757a53eba24b9bfda506fb94fbce0bee843c6f05541a15"},
 ]
-
-[package.dependencies]
-setuptools_scm = "*"
 
 [[package]]
 name = "executing"
@@ -985,13 +983,13 @@ files = [
 
 [[package]]
 name = "invoke"
-version = "2.1.3"
+version = "1.7.3"
 description = "Pythonic task execution"
 optional = false
-python-versions = ">=3.6"
+python-versions = "*"
 files = [
-    {file = "invoke-2.1.3-py3-none-any.whl", hash = "sha256:51e86a08d964160e01c44eccd22f50b25842bd96a9c63c11177032594cb86740"},
-    {file = "invoke-2.1.3.tar.gz", hash = "sha256:a3b15d52d50bbabd851b8a39582c772180b614000fa1612b4d92484d54d38c6b"},
+    {file = "invoke-1.7.3-py3-none-any.whl", hash = "sha256:d9694a865764dd3fd91f25f7e9a97fb41666e822bbb00e670091e3f43933574d"},
+    {file = "invoke-1.7.3.tar.gz", hash = "sha256:41b428342d466a82135d5ab37119685a989713742be46e42a3a399d685579314"},
 ]
 
 [[package]]
@@ -2485,13 +2483,13 @@ files = [
 
 [[package]]
 name = "python-semantic-release"
-version = "7.34.6"
+version = "7.28.1"
 description = "Automatic Semantic Versioning for Python projects"
 optional = false
 python-versions = "*"
 files = [
-    {file = "python-semantic-release-7.34.6.tar.gz", hash = "sha256:e9b8fb788024ae9510a924136d573588415a16eeca31cc5240f2754a80a2e831"},
-    {file = "python_semantic_release-7.34.6-py3-none-any.whl", hash = "sha256:7e3969ba4663d9b2087b02bf3ac140e202551377bf045c34e09bfe19753e19ab"},
+    {file = "python-semantic-release-7.28.1.tar.gz", hash = "sha256:d7f82b3d4c06b304d07689b8a1c7d0d448ff07c2ab81cd810c4f2f900f24c599"},
+    {file = "python_semantic_release-7.28.1-py3-none-any.whl", hash = "sha256:319c3e811d6e10bc3f0e967419eae0e5e9ba1e6745aa2fd94dd24e3995541ca2"},
 ]
 
 [package.dependencies]
@@ -2499,20 +2497,19 @@ click = ">=7,<9"
 click-log = ">=0.3,<1"
 dotty-dict = ">=1.3.0,<2"
 gitpython = ">=3.0.8,<4"
-invoke = ">=1.4.1,<3"
-packaging = "*"
+invoke = ">=1.4.1,<2"
 python-gitlab = ">=2,<4"
 requests = ">=2.25,<3"
 semver = ">=2.10,<3"
-tomlkit = ">=0.10,<1.0"
+tomlkit = ">=0.10.0,<0.11.0"
 twine = ">=3,<4"
 wheel = "*"
 
 [package.extras]
 dev = ["black", "isort", "tox"]
-docs = ["Jinja2 (==3.0.3)", "Sphinx (==1.8.6)"]
+docs = ["Sphinx (==1.3.6)"]
 mypy = ["mypy", "types-requests"]
-test = ["coverage (>=5,<6)", "mock (==1.3.0)", "pytest (>=7,<8)", "pytest-mock (>=2,<3)", "pytest-xdist (>=1,<2)", "responses (==0.13.3)"]
+test = ["coverage (>=5,<6)", "mock (==1.3.0)", "pytest (>=5,<6)", "pytest-mock (>=2,<3)", "pytest-xdist (>=1,<2)", "responses (==0.13.3)"]
 
 [[package]]
 name = "pywin32"
@@ -2878,42 +2875,6 @@ files = [
 nativelib = ["pyobjc-framework-Cocoa", "pywin32"]
 objc = ["pyobjc-framework-Cocoa"]
 win32 = ["pywin32"]
-
-[[package]]
-name = "setuptools"
-version = "68.0.0"
-description = "Easily download, build, install, upgrade, and uninstall Python packages"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "setuptools-68.0.0-py3-none-any.whl", hash = "sha256:11e52c67415a381d10d6b462ced9cfb97066179f0e871399e006c4ab101fc85f"},
-    {file = "setuptools-68.0.0.tar.gz", hash = "sha256:baf1fdb41c6da4cd2eae722e135500da913332ab3f2f5c7d33af9b492acb5235"},
-]
-
-[package.extras]
-docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
-testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-ruff", "pytest-timeout", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
-testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
-
-[[package]]
-name = "setuptools-scm"
-version = "7.1.0"
-description = "the blessed package to manage your versions by scm tags"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "setuptools_scm-7.1.0-py3-none-any.whl", hash = "sha256:73988b6d848709e2af142aa48c986ea29592bbcfca5375678064708205253d8e"},
-    {file = "setuptools_scm-7.1.0.tar.gz", hash = "sha256:6c508345a771aad7d56ebff0e70628bf2b0ec7573762be9960214730de278f27"},
-]
-
-[package.dependencies]
-packaging = ">=20.0"
-setuptools = "*"
-typing-extensions = "*"
-
-[package.extras]
-test = ["pytest (>=6.2)", "virtualenv (>20)"]
-toml = ["setuptools (>=42)"]
 
 [[package]]
 name = "six"
@@ -3300,13 +3261,13 @@ test = ["flake8", "isort", "pytest"]
 
 [[package]]
 name = "tomlkit"
-version = "0.11.8"
+version = "0.10.2"
 description = "Style preserving TOML library"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.6,<4.0"
 files = [
-    {file = "tomlkit-0.11.8-py3-none-any.whl", hash = "sha256:8c726c4c202bdb148667835f68d68780b9a003a9ec34167b6c673b38eff2a171"},
-    {file = "tomlkit-0.11.8.tar.gz", hash = "sha256:9330fc7faa1db67b541b28e62018c17d20be733177d290a13b24c62d1614e0c3"},
+    {file = "tomlkit-0.10.2-py3-none-any.whl", hash = "sha256:905cf92c2111ef80d355708f47ac24ad1b6fc2adc5107455940088c9bbecaedb"},
+    {file = "tomlkit-0.10.2.tar.gz", hash = "sha256:30d54c0b914e595f3d10a87888599eab5321a2a69abc773bbefff51599b72db6"},
 ]
 
 [[package]]
@@ -3608,5 +3569,5 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 
 [metadata]
 lock-version = "2.0"
-python-versions = ">=3.11"
-content-hash = "69f285f67cef4944c8661b6e33f8a56f50109459507da53c0e20a00ecd23b1a0"
+python-versions = ">=3.11,<4.0"
+content-hash = "fe0289ca11e6c4bde74b71c1aa285664a4f2e533e1a9dd124f27eda923159f1e"
