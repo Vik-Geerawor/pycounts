@@ -8,7 +8,7 @@ on: [push, pull_request]
 
 # list of jobs
 jobs:
-    # job 1
+    # job 1: automatically runs tests, code cov and build docs
     ci:
         # runs on - platform
         runs-on: ubuntu-latest
@@ -46,3 +46,69 @@ jobs:
             # step 6: build docs
             -   name: Build documentation
                 run: poetry run make html --directory docs/
+    
+    # job 2 - deploy package each time updated code is pushed to 'main' branch
+    cd:
+        # conditions
+        # only runs if the "ci" job passes
+        needs: ci
+        # only runs if new work is pushed to the "main" branch
+        if:  github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+        # runs on
+        runs-on: ubuntu-latest
+
+        # steps
+        steps:
+
+            # step 1: set up python
+            -   name: Set up python
+                uses: actions/setup-python@v2
+                with:
+                    python-version: 3.11
+            
+            #  step 2: checkout repo
+            -   name: Check-out repository
+                uses: actions/checkout@v2
+                with:
+                    fetch-depth: 0      # allows PSR access to commit history
+            
+            # step 3: install poetry
+            -   name: Install poetry
+                uses: snok/install-poetry@v1
+
+            # step 4: install package
+            -   name: Install package
+                run: poetry install
+
+            # step 5: prepare release
+            -   name: Prepare release using PSR
+                env:
+                    GH_TOKEN: ${{  secrets.GITHUB_TOKEN }}
+                run: |
+                    git config user.name github-actions
+                    git config user.email github-actions@github.com
+                    poetry run sementic-release publish
+
+            # step 6: publish to testpyip
+            -   name: Publish to TestPyPi
+                uses: pypa/gh-action-pypi-publish@release/v1
+                with:
+                    user: __token__
+                    password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+                    repository_url: https://test.pypi/org/legacy/
+
+            # step 7: test-install package
+            -   name: Test insall from TestPyPi
+                run: |
+                    pip insall \
+                    --index-url https://test.pypi.org/simple/ \
+                    --extra-index-url https://pypi.org/simple \
+                    pycounts
+
+            # step 8; publsih to PyPi - not doing it
+            # -   name: Publish to PyPi
+            #     uses: pypa/gh-action-pypi-publish@release/v1
+            #     with:
+            #         user: __token__
+            #         password: ${{ secrets.PYPI_API_TOKEN }}
