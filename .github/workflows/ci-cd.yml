@@ -96,7 +96,7 @@ jobs:
                 with:
                     user: __token__
                     password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-                    repository_url: https://test.pypi/org/legacy/
+                    repository-url: https://test.pypi.org/legacy/
 
             # step 7: test-install package
             -   name: Test insall from TestPyPi
