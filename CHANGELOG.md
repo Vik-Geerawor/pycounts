@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.1 (2023-07-16)
+
+
 ## v0.3.0 (2023-07-16)
 ### Feature
 * Corrected typo in CI/CD workflow ([`d8dc8fd`](https://github.com/Vik-Geerawor/pycounts/commit/d8dc8fd7027c0f4ac2aeb6dc6a14e6386e95d3c3))

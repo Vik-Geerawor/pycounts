@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pycounts"
-version = "0.3.0"
+version = "0.3.1"
 description = "A package for counting the number of words"
 authors = ["Vik Geerawor <sgeerawor@gmail.com>"]
 license = "MIT"
