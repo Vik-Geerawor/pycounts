@@ -7,7 +7,7 @@ build:
 
 # Configuration
 python:
-  version: 3.11
+  version: 3.11 # ERROR: Failing, v3.11 not supported
   install:
     - requirements: docs/requirements.txt
     - method: pip
