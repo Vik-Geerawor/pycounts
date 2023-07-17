@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.3 (2023-07-17)
+### Documentation
+* Added comment on readthedocs.yml file ([`4536e69`](https://github.com/Vik-Geerawor/pycounts/commit/4536e6970ec96825f3672804aa163cdc068d551e))
+
 ## v0.3.2 (2023-07-16)
 
 
