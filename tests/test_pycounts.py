@@ -25,10 +25,8 @@ def test_plot_words(einstein_counts):
     """Test plotting of word counts."""
     counts = einstein_counts
     fig = plot_words(counts)
-    assert isinstance(fig, matplotlib.container.BarContainer), \
-        "Wrong plot type"
-    assert len(fig.datavalues) == 10, \
-        "Incorrect number of bars plotted"
+    assert isinstance(fig, matplotlib.container.BarContainer), "Wrong plot type"
+    assert len(fig.datavalues) == 10, "Incorrect number of bars plotted"
 
 
 @pytest.mark.parametrize(
@@ -52,12 +50,9 @@ def test_integration():
     """Test count_words() and plot_words() workflow."""
     counts = count_words("tests/einstein.txt")
     fig = plot_words(counts)
-    assert isinstance(fig, matplotlib.container.BarContainer), \
-        "Wrong plot type"
-    assert len(fig.datavalues) == 10, \
-        "Wrong number of bars plotted"
-    assert max(fig.datavalues) == 2, \
-        "Highest word count should be 2"
+    assert isinstance(fig, matplotlib.container.BarContainer), "Wrong plot type"
+    assert len(fig.datavalues) == 10, "Wrong number of bars plotted"
+    assert max(fig.datavalues) == 2, "Highest word count should be 2"
 
 
 def test_regression():
